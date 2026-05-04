@@ -145,6 +145,21 @@ fig_heat.update_layout(
 st.plotly_chart(fig_heat, use_container_width=True)
 st.caption('Análisis de intensidad térmica horaria: permite identificar visualmente las horas de mayor calor durante el año.')
 
+hist_button = st.button('Construir histograma de temperatura')
+
+if hist_button:
+
+    st.write('Construcción de histograma para los datos de temperatura')
+
+    fig = px.histogram(
+        df,
+        nbins = 30,
+        x = 'temp_bulbo_seco',
+        title='Distribución de Temperatura de Bulbo Seco — Mérida, Yuc.',
+        labels={'temp_bulbo_seco': 'Temperatura (°C)'})
+    
+    st.plotly_chart(fig, use_container_width=True)
+
 st.divider()
 
 # ─── SECCIÓN 2: HUMEDAD ───────────────────────────────────────────────────────
@@ -192,6 +207,18 @@ fig_hum.update_layout(
 
 st.plotly_chart(fig_hum, use_container_width=True)
 st.caption('Zona de confort de humedad relativa: 30% – 70% según ASHRAE 55.')
+
+scatter_button = st.checkbox('Relación Temperatura - Humedad')
+
+if scatter_button:
+    fig = px.scatter(df, x='temp_bulbo_seco', y='humedad_relativa',
+                color='mes',
+                title='Temperatura vs Humedad Relativa',
+                labels={'temp_bulbo_seco': 'Temperatura (°C)',
+                        'humedad_relativa': 'Humedad Relativa (%)',
+                        'mes': 'Mes'})
+    
+    st.plotly_chart(fig, use_container_width=True)
 
 st.divider()
 
