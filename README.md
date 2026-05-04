@@ -1,17 +1,20 @@
-# Sprint 7 - Tripleten
+# 🌤️ Análisis Exploratorio de Datos Climatológicos para Diseño Bioclimático
 
-El presente proyecto crea una página web para un análisis exploratorio de datos (EDA) con enfoque en datos climatólogicos para su uso en arquitectura. 
+Este proyecto consiste en una herramienta web interactiva desarrollada con Streamlit para el análisis exploratorio de datos (EDA) enfocados en la arquitectura sustentable. El objetivo principal es transformar datos meteorológicos en información visual estratégica para la toma de decisiones en el diseño arquitectónico.
 
-Para este tipo de análisis hay cuatro variables atmosféricas principales a analizar: temperatura, humedad, precipitación y vientos.
+## 📌 Contexto del Proyecto
+El diseño bioclimático busca optimizar el confort humano y la eficiencia energética mediante el análisis de las variables atmosféricas locales. Esta herramienta analiza cuatro pilares fundamentales:
+1. Temperatura y Confort Adaptativo
+    La temperatura define los requerimientos energéticos de un edificio. Este análisis se basa en el Modelo de Confort Adaptativo, el cual establece que la sensación térmica de las personas varía según el clima al que están habituadas.
+        - Zona de Confort: Se define como un rango de $\pm 3.5^{\circ}C$ respecto a la temperatura neutra.
+        - Impacto: Cualquier valor fuera de este rango indica la necesidad de estrategias de diseño para calentar o enfriar el espacio.
+2. Humedad Relativa
+    El confort higrométrico se sitúa idealmente entre el 30% y el 70%. El control de la humedad es crítico por dos razones:
+        - Sensación Térmica: La humedad alta en climas cálidos limita la evaporación del sudor, provocando sofocamiento.
+        - Integridad de los materiales: Niveles extremos afectan la durabilidad de materiales (como el yeso o el acero) y fomentan la proliferación de patógenos, hongos y salitre.
+3. Precipitación PluvialEl análisis de la pluviosidad acumulada permite identificar los periodos de lluvia crítica. Esta información es esencial para:Dimensionar sistemas de captación de agua pluvial.Diseñar estrategias de drenaje y protección de fachadas.
 
-Primeramente, la temperatura nos dicta los requerimentos energéticos que necesitamos en nuestro diseño, es decir, si necesitamos enfriar o calentar el espacio. Esto se determina tomando como temperatura base la **temperatura de confort adaptativo**. Esta temperatura expresa el valor en el cual una persona de un determinado lugar se encuentra en confort térmico. Este confort cambia de región a región debido a que las personas se aclimatan a los climas en los cuales se desenvuelven, por eso el nombre de adaptativo. A partir de este valor, se toma un rango de {\pm 3.5°C}, el cual nos da la Zona de confort térmico. Cualquier valor fuera de este rango es indicativo del requerimento energético del proyecto.
-
-De manera similar, el ser humano se encuentra en confort higromético cuando la humedad relativa en el ambiente se encuentra dentro del rango de 30 a 70%. Es importante conocer el valor de la humedad por dos principales razones: 
-- La humedad potencia las sensaciones térmicas, especialmente cuando hace calor. El ser humano naturalmente suda para refrescarse en estos ambientes, sin embargo, si la humedad en e propio ambiente es alta, el sudor propiciara una sensación de sofocamiento.
-- Los materiales de la construcción. Existen materiales (como el yeso) que son extremadamente sensibles a la humedad, y que pueden propiciar no solo el desprendimiento de los acabados o recubrimientos, sino tambien el deterioro de estructuras de acero y la proliferación de hongos y salitre.
-
-Por su parte, la precipitación nos permite conocer el dato de cuales son los meses de lluvia. Con estos datos se pueden proponer sistemas de capatción de agua en función de la cantidad de lluvia registrada.
-
-Finalmente, conocer la dirección dominante de los vientos, así como su velocidad, nos permite diseñar sistemas de ventilación pasiva optimos para refrescar el ambiente y renovar el aire, especialmente en climas cálidos y húmedos.
-
-El proyecto contiene por default datos de una estación meteorológica de Yucatán. Sin embargo, con el fin de que sea una página reutilizable, se agrega la opción de cargar datos propios. Es importante que estos datos sean originalmente EPW y posteriormente convertidos a csv. 
+4. Régimen de Vientos
+    El estudio de la dirección dominante y la velocidad del viento permite proyectar sistemas de ventilación pasiva. Esto es vital en climas cálidos y húmedos para garantizar la renovación de aire y el refrescamiento natural de los interiores.
+    
+Incluye por defecto datos de Mérida, Yucatán (TMYx), pero permite la carga de archivos personalizados. Sin embargo, para asegurar la compatibilidad, los datos deben seguir el formato de los archivos EPW (EnergyPlus Weather) convertidos previamente a formato CSV.Nota: La precisión del análisis depende de la calidad del archivo fuente. Se recomienda utilizar bases de datos reconocidas como Climate.OneBuilding.org.
